@@ -1,0 +1,81 @@
+body {
+  background-color: #000;
+  font-family: tahoma;
+  font-size: 18px;
+}
+.navbar-default {
+  background-color: #ffffff;
+  margin-bottom: 5px;
+}
+.navbar-default img {
+  width: 350px;
+  margin: 10px;
+}
+#result {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+h3 {
+  margin: 20px;
+}
+form {
+  margin: 10px;
+}
+.container {
+  background-color: #ffffff;
+}
+.form-group label {
+  font-weight: normal;
+  margin: 10px;
+}
+.form-group hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.rating-disabled .rating {
+  cursor: auto;
+}
+a {
+  margin-right: 30px;
+  color: red !important;
+}
+.card {
+  border: solid 1px #cccccc;
+  height: auto;
+  min-height: 390px;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.card .price {
+  color: #639ED4;
+}
+.card .productImage {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+.card .productImage img {
+  height: 200px;
+}
+.card h5 {
+  color: #000;
+  text-align: justify;
+}
+.card .desc {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: 16px;
+  line-height: 1.8;
+  /* fallback */
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+[ng\:cloak],
+[ng-cloak],
+.ng-cloak {
+  display: none !important;
+}

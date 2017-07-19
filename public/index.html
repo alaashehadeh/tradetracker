@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trade Tracker</title>
+
+    <!-- css files -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="files/css/loader.css" type="text/css" rel="stylesheet">
+    <link href="files/css/style.css" type="text/css" rel="stylesheet">
+
+</head>
+<body ng-app="tradeTracker" ng-controller="searchController">
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#"></a><img
+                src="https://tradetracker.com/media/2016/12/tradetracker-logo-2.svg"/>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <form method="post" ng-submit="formData()">
+
+        <!-- Product URL -->
+        <div class="row">
+            <div class="col-md-2 hidden-sm hidden-xs">Url:</div>
+            <div class="col-md-10 form-group">
+                <input class="form-control"
+                                             type="text" id="url" name="url" ng-model="url" autocomplete="off" placeholder="Url" required>
+            </div>
+        </div>
+
+        <!-- submit -->
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i> Search</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="container" id="result" ng-cloak>
+    <!-- loader -->
+    <div class="row" ng-if="loading">
+        <div class="col-md-12">
+            <div class="loader">Loading...</div>
+        </div>
+    </div>
+
+    <!-- Error loader -->
+    <div class="row" ng-if="error">
+        <div class="col-md-push-2 text-center col-md-8">
+            <div class="alert alert-danger lead">
+                Error in loading URL data
+            </div>
+        </div>
+    </div>
+
+    <!-- content Result -->
+    <div class="row" ng-if="result.length > 1">
+        <div class="col-md-6" ng-repeat="product in result">
+            <div class="card">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="productImage"><a ng-href="{{product.productURL | urlEncode }}" target="_blank"> <img
+                                ng-src="{{product.imageURL}}"/> </a></div>
+                        <div><h6><a ng-href="{{product.productURL | urlEncode }}"
+                                    target="_blank">{{product.productID}}</a></h6></div>
+                        <div><h4><a ng-href="{{product.productURL | urlEncode }}" target="_blank">{{product.name}}</a>
+                        </h4></div>
+
+                        <h5>
+                            {{product.description | limitTo:280 }} ...
+                        </h5>
+                    </div>
+                </div>
+
+                <!--cateogires -->
+                <div class="row">
+                    <h3>This product has the following categories</h3>
+                    <ul>
+                        <li ng-repeat="category in product.categories">
+                            {{category.$}}
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="row price">
+                    <div class="col-md-12 lead text-center">
+                        {{product.price.$}} {{product.price.currency}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<!-- JS files -->
+<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="files/js/app.js"></script>
+<script type="text/javascript" src="files/js/services/webServices.js"></script>
+<script type="text/javascript" src="files/js/controllers/productsController.js"></script>
+
+</body>
+</html>
+

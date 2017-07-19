@@ -1,0 +1,21 @@
+{
+  "name": "tradeTracker",
+  "authors": [
+    "Ala Shehadeh <alaa.sh.1984@gmail.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-xml": "^2.2.2"
+  }
+}
